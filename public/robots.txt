@@ -1,3 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
+# Creator Terminal - Robots.txt
+# https://www.creatorterminal.com
+
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://www.creatorterminal.com/sitemap.xml
