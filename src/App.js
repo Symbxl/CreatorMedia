@@ -83,31 +83,6 @@ function CTLogoFull({ height = 32, variant = 'dark' }) {
 }
 
 const Icons = {
-  Mic: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>
-    </svg>
-  ),
-  Video: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/>
-    </svg>
-  ),
-  Code: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
-    </svg>
-  ),
-  Box: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>
-    </svg>
-  ),
-  Megaphone: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
-    </svg>
-  ),
   Briefcase: () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
@@ -148,11 +123,6 @@ const Icons = {
       <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
     </svg>
   ),
-  GraduationCap: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
-    </svg>
-  ),
   Lightbulb: () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>
@@ -171,16 +141,6 @@ const Icons = {
   ArrowRight: () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-    </svg>
-  ),
-  Play: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <polygon points="5 3 19 12 5 21 5 3"/>
-    </svg>
-  ),
-  ChevronDown: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m6 9 6 6 6-6"/>
     </svg>
   ),
   Plus: () => (
@@ -399,150 +359,6 @@ function Hero() {
   );
 }
 
-/* ============================================
-   ABOUT SECTION
-   ============================================ */
-function About() {
-  return (
-    <section className="section about" id="about">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> Our Mission</div>
-          <h2 className="section-title">Empowering Growth Through Creativity and Access</h2>
-          <p className="section-subtitle">
-            We believe everyone deserves access to world-class creative tools and training.
-          </p>
-        </AnimatedSection>
-
-        <div className="about-grid">
-          <AnimatedSection direction="left">
-            <div className="about-image">
-              <img
-                src={`${process.env.PUBLIC_URL}/newpic.avif`}
-                alt="Creator Terminal empowering growth through creativity"
-                loading="lazy"
-              />
-              <div className="about-image-overlay" />
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection direction="right">
-            <div className="about-text">
-              <h3>Empowering Growth Through Creativity and Access</h3>
-              <div className="about-cards">
-                <div className="about-card">
-                  <img src={`${process.env.PUBLIC_URL}/1.png`} alt="" className="about-card-icon" />
-                  <div>
-                    <h4>Expand Opportunity</h4>
-                    <p>Bridging the gap between talent and technology by providing access to creative tools, training, and real-world experience.</p>
-                  </div>
-                </div>
-                <div className="about-card">
-                  <img src={`${process.env.PUBLIC_URL}/2.png`} alt="" className="about-card-icon" />
-                  <div>
-                    <h4>Inspire Collaboration</h4>
-                    <p>Bringing people together through mentorship, workshops, and community projects that spark innovation and shared learning.</p>
-                  </div>
-                </div>
-                <div className="about-card">
-                  <img src={`${process.env.PUBLIC_URL}/3.png`} alt="" className="about-card-icon" />
-                  <div>
-                    <h4>Build Sustainable Futures</h4>
-                    <p>Equipping creators with the skills and confidence to turn imagination into careers creating lasting impact for themselves and their communities.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================
-   PROGRAMS SECTION
-   ============================================ */
-const programs = [
-  {
-    icon: <Icons.Mic />,
-    iconClass: 'recording',
-    title: 'Recording Arts',
-    description: 'Launch your career in audio engineering and music production with hands-on training in professional studio environments.',
-    tools: ['Pro Tools', 'Logic Pro', 'Ableton', 'Studio Hardware'],
-  },
-  {
-    icon: <Icons.Video />,
-    iconClass: 'video',
-    title: 'Video Production',
-    description: 'Master filmmaking and video production from pre-production to post, including cinematography, editing, and color grading.',
-    tools: ['Adobe Premiere', 'DaVinci Resolve', 'After Effects', 'Cinema Cameras'],
-  },
-  {
-    icon: <Icons.Code />,
-    iconClass: 'web',
-    title: 'Web & Graphic Design',
-    description: 'Build stunning websites and visual identities using industry-standard design and development tools.',
-    tools: ['Adobe Suite', 'Figma', 'HTML/CSS', 'JavaScript'],
-  },
-  {
-    icon: <Icons.Box />,
-    iconClass: 'threed',
-    title: '3D Modeling',
-    description: 'Create immersive 3D environments, characters, and assets using cutting-edge tools and game engines.',
-    tools: ['Unreal Engine', 'Blender', '3D Printing', 'Maya'],
-  },
-  {
-    icon: <Icons.Megaphone />,
-    iconClass: 'marketing',
-    title: 'Social Media Marketing',
-    description: 'Learn to build and grow audiences across platforms with data-driven content strategies and engagement techniques.',
-    tools: ['Content Strategy', 'Analytics', 'Brand Building', 'Paid Ads'],
-  },
-  {
-    icon: <Icons.Briefcase />,
-    iconClass: 'business',
-    title: 'Business Administration',
-    description: 'Turn your creative skills into a sustainable business with training in freelancing, contracts, and entrepreneurship.',
-    tools: ['Freelancing', 'Contracts', 'Pricing', 'Client Management'],
-  },
-];
-
-function Programs() {
-  return (
-    <section className="section programs" id="programs">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> What We Teach</div>
-          <h2 className="section-title">Industry-Focused Programs</h2>
-          <p className="section-subtitle">
-            Comprehensive training across six creative disciplines, combining practical skills
-            with the theoretical knowledge demanded by today's industry.
-          </p>
-        </AnimatedSection>
-
-        <div className="programs-grid">
-          {programs.map((program, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <div className="program-card">
-                <div className={`program-icon ${program.iconClass}`}>
-                  {program.icon}
-                </div>
-                <h3>{program.title}</h3>
-                <p>{program.description}</p>
-                <div className="program-tools">
-                  {program.tools.map((tool, i) => (
-                    <span key={i} className="program-tool-tag">{tool}</span>
-                  ))}
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ============================================
    MAKERSPACE SECTION
@@ -601,99 +417,6 @@ function Makerspace() {
   );
 }
 
-/* ============================================
-   PATHWAY SECTION
-   ============================================ */
-function Pathway() {
-  return (
-    <section className="section pathway" id="pathway">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> Your Journey</div>
-          <h2 className="section-title">From Beginner to Professional in 90 Days</h2>
-          <p className="section-subtitle">
-            Our structured pathway takes you from learning fundamentals to landing your first paid freelance gig.
-          </p>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="pathway-timeline">
-            <div className="pathway-step">
-              <div className="pathway-step-dot" />
-              <div className="step-label">Days 1-30</div>
-              <h4>Learn & Build</h4>
-              <p>Master fundamentals through micro-lessons in your chosen discipline. Build your first projects with hands-on mentorship.</p>
-            </div>
-            <div className="pathway-step">
-              <div className="pathway-step-dot" />
-              <div className="step-label">Days 31-60</div>
-              <h4>Create & Portfolio</h4>
-              <p>Develop a professional portfolio with real-world projects. Refine your skills through advanced techniques and peer collaboration.</p>
-            </div>
-            <div className="pathway-step">
-              <div className="pathway-step-dot" />
-              <div className="step-label">Days 61-90</div>
-              <h4>Launch & Earn</h4>
-              <p>Connect with local employers and clients. Land your first paid freelance work with our business training and community network.</p>
-            </div>
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================
-   COMMUNITY SECTION
-   ============================================ */
-function Community() {
-  return (
-    <section className="section community" id="community">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> Why Join Us</div>
-          <h2 className="section-title">More Than Education</h2>
-          <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Community is key to success in the creative industry. Join our network of like-minded
-            individuals passionate about digital media.
-          </p>
-        </AnimatedSection>
-
-        <div className="community-cards">
-          <AnimatedSection delay={0.1}>
-            <div className="community-card">
-              <div className="community-card-icon" style={{ color: '#18dc89' }}>
-                <Icons.GraduationCap />
-              </div>
-              <h3>Expert Mentorship</h3>
-              <p>Learn directly from industry professionals who guide you through hands-on projects and provide personalized feedback on your growth.</p>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2}>
-            <div className="community-card">
-              <div className="community-card-icon" style={{ color: '#12b06e' }}>
-                <Icons.Users />
-              </div>
-              <h3>Creative Collaboration</h3>
-              <p>Work alongside fellow creators on real projects. Build connections that turn into creative partnerships and professional opportunities.</p>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.3}>
-            <div className="community-card">
-              <div className="community-card-icon" style={{ color: '#0fa968' }}>
-                <Icons.Rocket />
-              </div>
-              <h3>Career Launchpad</h3>
-              <p>Gain connections to local employers and businesses. Our 90-day pathway is designed to get you from learning to earning quickly.</p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ============================================
    FAQ SECTION
@@ -763,77 +486,6 @@ function FAQ() {
   );
 }
 
-/* ============================================
-   TEAM SECTION
-   ============================================ */
-const teamMembers = [
-  {
-    name: 'Anthony Arriaga',
-    role: 'Founder & President',
-    bio: 'Filmmaker, media producer, and educator dedicated to empowering the next generation of digital creatives in Houston. Anthony founded Creator Terminal to bridge the gap between aspiring creators and industry-level resources.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop',
-    linkedin: 'https://www.linkedin.com/in/mysticmediafilm/',
-  },
-  {
-    name: 'Open Position',
-    role: 'Director of Education',
-    bio: 'We\'re looking for a passionate educator to lead our curriculum development and mentorship programs. If you love teaching digital media skills and building community, we want to hear from you.',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80&fit=crop',
-    linkedin: 'https://www.creatorterminal.com/careers',
-  },
-  {
-    name: 'Open Position',
-    role: 'Community Outreach Coordinator',
-    bio: 'Help us grow our impact across Katy, Houston, and the greater Harris and Fort Bend County areas. This role focuses on partnerships, events, and connecting underserved communities with creative opportunities.',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80&fit=crop',
-    linkedin: 'https://www.creatorterminal.com/careers',
-  },
-];
-
-function Team() {
-  return (
-    <section className="section team" id="team">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> Our People</div>
-          <h2 className="section-title">Meet the Team</h2>
-          <p className="section-subtitle">
-            Passionate creators and educators building Houston's premier digital media community.
-          </p>
-        </AnimatedSection>
-
-        <div className="team-grid">
-          {teamMembers.map((member, index) => (
-            <AnimatedSection key={index} delay={index * 0.15}>
-              <div className="team-card">
-                <div className="team-card-image">
-                  <img src={member.image} alt={member.name} loading="lazy" />
-                </div>
-                <div className="team-card-content">
-                  <h3>{member.name}</h3>
-                  <span className="team-card-role">{member.role}</span>
-                  <p>{member.bio}</p>
-                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-card-link">
-                    <Icons.LinkedIn /> <span>Connect</span>
-                  </a>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        <AnimatedSection delay={0.3}>
-          <div className="team-cta">
-            <p>Interested in joining our team?</p>
-            <a href="https://www.creatorterminal.com/careers" target="_blank" rel="noopener noreferrer" className="btn-primary">
-              View Open Positions <Icons.ArrowRight />
-            </a>
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
 
 /* ============================================
    DONATE SECTION
@@ -920,100 +572,6 @@ function Donate() {
   );
 }
 
-/* ============================================
-   IMPACT STORIES SECTION
-   ============================================ */
-const impactStories = [
-  {
-    quote: "Creator Terminal gave me access to equipment and mentorship I never could have afforded on my own. Within three months, I went from knowing nothing about video production to landing my first paid freelance gig.",
-    name: 'Marcus T.',
-    role: 'Video Production Graduate',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop',
-    discipline: 'Video Production',
-  },
-  {
-    quote: "The recording arts program completely changed my trajectory. I learned Pro Tools, studio engineering, and music production from real professionals. Now I'm running my own home studio and producing for local artists.",
-    name: 'Jasmine R.',
-    role: 'Recording Arts Graduate',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&fit=crop',
-    discipline: 'Recording Arts',
-  },
-  {
-    quote: "As someone who always loved design but couldn't afford school, Creator Terminal was a game-changer. The web design and coding program taught me real skills — I now build websites for small businesses in Katy.",
-    name: 'David L.',
-    role: 'Web Design Graduate',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80&fit=crop',
-    discipline: 'Web & Graphic Design',
-  },
-  {
-    quote: "The community here is what sets Creator Terminal apart. It's not just classes — it's a network of people who genuinely support each other. I've found collaborators, mentors, and lifelong friends.",
-    name: 'Sofia M.',
-    role: 'Social Media Marketing Graduate',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&fit=crop',
-    discipline: 'Social Media Marketing',
-  },
-];
-
-function ImpactStories() {
-  return (
-    <section className="section impact" id="impact">
-      <div className="section-inner">
-        <AnimatedSection>
-          <div className="section-label"><span className="line" /> Real Results</div>
-          <h2 className="section-title">Impact Stories</h2>
-          <p className="section-subtitle">
-            Hear from community members whose lives have been transformed through
-            Creator Terminal's programs and mentorship.
-          </p>
-        </AnimatedSection>
-
-        <div className="impact-grid">
-          {impactStories.map((story, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <div className="impact-card">
-                <div className="impact-card-quote">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.15">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/>
-                  </svg>
-                  <p>"{story.quote}"</p>
-                </div>
-                <div className="impact-card-author">
-                  <img src={story.image} alt={story.name} loading="lazy" />
-                  <div>
-                    <strong>{story.name}</strong>
-                    <span>{story.role}</span>
-                  </div>
-                  <span className="impact-card-tag">{story.discipline}</span>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        <AnimatedSection delay={0.3}>
-          <div className="impact-stats">
-            <div className="impact-stat">
-              <span className="impact-stat-number">50+</span>
-              <span className="impact-stat-label">Graduates</span>
-            </div>
-            <div className="impact-stat">
-              <span className="impact-stat-number">85%</span>
-              <span className="impact-stat-label">Employment Rate</span>
-            </div>
-            <div className="impact-stat">
-              <span className="impact-stat-number">3</span>
-              <span className="impact-stat-label">Counties Served</span>
-            </div>
-            <div className="impact-stat">
-              <span className="impact-stat-number">$0</span>
-              <span className="impact-stat-label">Cost to Students</span>
-            </div>
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
 
 /* ============================================
    CONTACT SECTION
@@ -1479,6 +1037,7 @@ function App() {
       <Navigation />
       <main>
         <Hero />
+        <EmpoweringGrowth />
         <InvestInCreators />
         <Makerspace />
         <JoinSection />
