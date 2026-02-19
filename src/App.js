@@ -1022,6 +1022,9 @@ function Footer() {
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
           </div>
+          <a href="https://www.guidestar.org/profile/15908022" target="_blank" rel="noopener noreferrer" aria-label="GuideStar Transparency Seal">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/15908022/svg" alt="GuideStar Transparency Seal" style={{ height: '80px', marginTop: '1rem' }} />
+          </a>
         </div>
       </div>
     </footer>
