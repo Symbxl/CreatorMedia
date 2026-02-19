@@ -2,38 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.creatorterminal.com/</loc>
-    <lastmod>2026-02-17</lastmod>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.creatorterminal.com/#about</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://www.creatorterminal.com/team</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.creatorterminal.com/#programs</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://www.creatorterminal.com/team/tristan-aurelio</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/team/anthony-marquez</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/team/karla-fernandez</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/team/daryl-joy-merencillo</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/donate</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.creatorterminal.com/#makerspace</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://www.creatorterminal.com/blog</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/blog/top-resources-every-new-nonprofit-needs</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.creatorterminal.com/#community</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://www.creatorterminal.com/blog/why-creator-terminal-exists</loc>
+    <lastmod>2026-02-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.creatorterminal.com/#faq</loc>
-    <lastmod>2026-02-17</lastmod>
+    <loc>https://www.creatorterminal.com/blog/top-10-nonprofit-organizations-houston-texas</loc>
+    <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/blog/why-volunteer-at-creator-terminal</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.creatorterminal.com/blog/discover-leading-houston-community-nonprofits</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

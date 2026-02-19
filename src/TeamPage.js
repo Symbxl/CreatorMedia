@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './TeamPage.css';
 import { CTA, Footer } from './App';
 
@@ -228,6 +229,45 @@ function TeamPage() {
 
   return (
     <div className="team-page">
+      <Helmet>
+        <title>Our Team | Creator Terminal - Meet the People Behind the Vision</title>
+        <meta name="description" content="Meet the dedicated team behind Creator Terminal. Our creators, educators, and innovators are committed to making digital media education accessible in Houston & Katy, TX." />
+        <meta name="keywords" content="Creator Terminal team, Anthony Marquez, digital media educators Houston, nonprofit team Katy TX, creative education instructors" />
+        <link rel="canonical" href="https://www.creatorterminal.com/team" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.creatorterminal.com/team" />
+        <meta property="og:title" content="Our Team | Creator Terminal" />
+        <meta property="og:description" content="Meet the dedicated team behind Creator Terminal - creators, educators, and innovators making digital media education accessible." />
+        <meta property="og:image" content="https://www.creatorterminal.com/community.avif" />
+        <meta property="og:site_name" content="Creator Terminal" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content="Our Team | Creator Terminal" />
+        <meta name="twitter:description" content="Meet the dedicated team behind Creator Terminal - creators, educators, and innovators." />
+        <meta name="twitter:image" content="https://www.creatorterminal.com/community.avif" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "Creator Terminal Team",
+          "description": "The team behind Creator Terminal nonprofit",
+          "url": "https://www.creatorterminal.com/team",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Creator Terminal",
+            "member": teamMembers.map(m => ({
+              "@type": "Person",
+              "name": m.name,
+              "jobTitle": m.role,
+              "description": m.bio,
+              "image": m.image,
+              "url": `https://www.creatorterminal.com/team/${m.slug}`
+            }))
+          }
+        })}</script>
+      </Helmet>
       {/* Navigation */}
       <nav className="team-nav">
         <div className="team-nav-inner">

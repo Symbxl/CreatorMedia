@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { teamMembers } from './TeamPage';
 import { CTA, Footer } from './App';
 import './MemberPage.css';
@@ -58,6 +59,46 @@ function MemberPage() {
 
   return (
     <div className="member-page">
+      <Helmet>
+        <title>{member.name} - {member.role} | Creator Terminal Team</title>
+        <meta name="description" content={`${member.name} is ${member.role} at Creator Terminal. ${member.bio}`} />
+        <meta name="keywords" content={`${member.name}, Creator Terminal, ${member.role}, digital media education Houston, nonprofit team`} />
+        <link rel="canonical" href={`https://www.creatorterminal.com/team/${member.slug}`} />
+
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content={`https://www.creatorterminal.com/team/${member.slug}`} />
+        <meta property="og:title" content={`${member.name} - ${member.role} | Creator Terminal`} />
+        <meta property="og:description" content={member.bio} />
+        <meta property="og:image" content={member.image} />
+        <meta property="og:site_name" content="Creator Terminal" />
+        <meta property="profile:first_name" content={member.name.split(' ')[0]} />
+        <meta property="profile:last_name" content={member.name.split(' ').slice(1).join(' ')} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content={`${member.name} | Creator Terminal`} />
+        <meta name="twitter:description" content={member.bio} />
+        <meta name="twitter:image" content={member.image} />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "mainEntity": {
+            "@type": "Person",
+            "name": member.name,
+            "jobTitle": member.role,
+            "description": member.fullBio,
+            "image": member.image,
+            "email": member.email,
+            "telephone": member.phone,
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Creator Terminal",
+              "url": "https://www.creatorterminal.com"
+            }
+          }
+        })}</script>
+      </Helmet>
       {/* Navigation */}
       <nav className="member-nav">
         <div className="member-nav-inner">

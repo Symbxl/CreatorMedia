@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { blogPosts } from './BlogPage';
 import { CTA, Footer } from './App';
 import './BlogPostPage.css';
@@ -153,6 +154,50 @@ function BlogPostPage() {
 
   return (
     <div className="blogpost-page">
+      <Helmet>
+        <title>{post.title} | Creator Terminal Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta name="keywords" content={`Creator Terminal, ${post.category}, Houston nonprofit, digital media education, ${post.title.split(' ').slice(0, 5).join(', ')}`} />
+        <link rel="canonical" href={`https://www.creatorterminal.com/blog/${post.slug}`} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://www.creatorterminal.com/blog/${post.slug}`} />
+        <meta property="og:title" content={`${post.title} | Creator Terminal`} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <meta property="og:site_name" content="Creator Terminal" />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:author" content="Creator Terminal" />
+        <meta property="article:section" content={post.category} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image} />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt,
+          "image": post.image,
+          "datePublished": post.date,
+          "dateModified": post.date,
+          "author": { "@type": "Organization", "name": "Creator Terminal" },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Creator Terminal",
+            "logo": { "@type": "ImageObject", "url": "https://www.creatorterminal.com/logo512.png" }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://www.creatorterminal.com/blog/${post.slug}`
+          },
+          "articleSection": post.category,
+          "wordCount": post.content.split(' ').length
+        })}</script>
+      </Helmet>
       {/* Navigation */}
       <nav className="blogpost-nav">
         <div className="blogpost-nav-inner">

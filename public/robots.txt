@@ -1,7 +1,11 @@
-# Creator Terminal - Robots.txt
-# https://www.creatorterminal.com
-
+# Creator Terminal - https://www.creatorterminal.com
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://www.creatorterminal.com/sitemap.xml
+
+# Disallow admin or private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/

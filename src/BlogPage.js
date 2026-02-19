@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { CTA, Footer } from './App';
 import './BlogPage.css';
 
@@ -570,6 +571,47 @@ function BlogPage() {
 
   return (
     <div className="blog-page">
+      <Helmet>
+        <title>Blog & Impact Stories | Creator Terminal - Houston Nonprofit</title>
+        <meta name="description" content="Read inspiring stories of how Creator Terminal is transforming lives through creative education. Discover resources for nonprofits, community impact stories, and volunteer opportunities in Houston & Katy, TX." />
+        <meta name="keywords" content="Creator Terminal blog, nonprofit stories, Houston nonprofit, creative education impact, digital media education blog, Katy TX nonprofit, community impact, volunteer Houston" />
+        <link rel="canonical" href="https://www.creatorterminal.com/blog" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.creatorterminal.com/blog" />
+        <meta property="og:title" content="Blog & Impact Stories | Creator Terminal" />
+        <meta property="og:description" content="Read inspiring stories of how Creator Terminal is transforming lives through creative education and access to technology in Houston & Katy, TX." />
+        <meta property="og:image" content="https://www.creatorterminal.com/logo512.png" />
+        <meta property="og:site_name" content="Creator Terminal" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content="Blog & Impact Stories | Creator Terminal" />
+        <meta name="twitter:description" content="Read inspiring stories of how Creator Terminal is transforming lives through creative education and access to technology." />
+        <meta name="twitter:image" content="https://www.creatorterminal.com/logo512.png" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Creator Terminal Blog",
+          "description": "Impact stories and resources from Creator Terminal nonprofit",
+          "url": "https://www.creatorterminal.com/blog",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Creator Terminal",
+            "logo": { "@type": "ImageObject", "url": "https://www.creatorterminal.com/logo512.png" }
+          },
+          "blogPost": blogPosts.map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "url": `https://www.creatorterminal.com/blog/${post.slug}`,
+            "image": post.image,
+            "datePublished": post.date,
+            "author": { "@type": "Organization", "name": "Creator Terminal" }
+          }))
+        })}</script>
+      </Helmet>
       {/* Navigation */}
       <nav className="blog-nav">
         <div className="blog-nav-inner">

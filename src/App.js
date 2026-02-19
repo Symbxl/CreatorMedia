@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './App.css';
 
 /* ============================================
@@ -44,44 +45,6 @@ function AnimatedSection({ children, className = '', delay = 0, direction = 'up'
 /* ============================================
    SVG ICONS
    ============================================ */
-/* ============================================
-   CREATOR TERMINAL LOGO (from Brand Guidelines)
-   Hexagonal C bracket (dark) + green arrow
-   Colors: #18dc89 (green), #231f20 (dark), #ffffff (white)
-   ============================================ */
-function CTLogo({ size = 40, variant = 'dark' }) {
-  const dark = variant === 'light' ? '#ffffff' : '#231f20';
-  const green = '#18dc89';
-  return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Hexagonal C bracket */}
-      <path d="M38 12L18 24V48L28 54V34L42 26L56 34V42H68V24L48 12H38Z" fill={dark}/>
-      <path d="M38 88L18 76V52L28 46V66L42 74L56 66V58H68V76L48 88H38Z" fill={dark}/>
-      {/* Green arrow pointing right */}
-      <path d="M50 30L82 50L50 70V56H36V44H50V30Z" fill={green}/>
-    </svg>
-  );
-}
-
-function CTLogoFull({ height = 32, variant = 'dark' }) {
-  const textColor = variant === 'light' ? '#ffffff' : '#231f20';
-  return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }}>
-      <CTLogo size={height * 1.2} variant={variant} />
-      <span style={{
-        fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
-        fontSize: `${height * 0.55}px`,
-        fontWeight: 700,
-        color: textColor,
-        letterSpacing: '-0.02em',
-        lineHeight: 1,
-      }}>
-        Creator<span style={{ color: textColor }}>Terminal</span>
-      </span>
-    </div>
-  );
-}
-
 const Icons = {
   Briefcase: () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -922,7 +885,7 @@ function JoinSection() {
         <div className="join-layout">
           <AnimatedSection direction="left">
             <div className="join-image">
-              <img src={`${process.env.PUBLIC_URL}/join.avif`} alt="Join Creator Terminal" loading="lazy" />
+              <img src={`${process.env.PUBLIC_URL}/Join.avif`} alt="Join Creator Terminal" loading="lazy" />
               <div className="join-image-overlay" />
             </div>
           </AnimatedSection>
@@ -1084,6 +1047,84 @@ function Footer() {
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <title>Creator Terminal | Digital Media Education Nonprofit - Houston & Katy, TX</title>
+        <meta name="description" content="Creator Terminal is a 501(c)(3) nonprofit empowering individuals through digital media education in audio, video, coding, design, marketing & business. Located in Katy & Houston, TX." />
+        <meta name="keywords" content="Creator Terminal, digital media education, Houston nonprofit, Katy TX, recording arts, video production, web design, audio engineering, music production, creative education, makerspace, coding bootcamp, 3D modeling, nonprofit organization Houston" />
+        <link rel="canonical" href="https://www.creatorterminal.com/" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.creatorterminal.com/" />
+        <meta property="og:title" content="Creator Terminal | Digital Media Education Nonprofit - Houston & Katy, TX" />
+        <meta property="og:description" content="Empowering emerging digital media professionals through accessible, high-quality education in videography, coding, 3D modeling, audio production and more. 501(c)(3) nonprofit in Katy, TX." />
+        <meta property="og:image" content="https://www.creatorterminal.com/logo512.png" />
+        <meta property="og:site_name" content="Creator Terminal" />
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content="Creator Terminal | Digital Media Education Nonprofit" />
+        <meta name="twitter:description" content="Empowering emerging digital media professionals through accessible, high-quality education in videography, coding, 3D modeling, audio production and more." />
+        <meta name="twitter:image" content="https://www.creatorterminal.com/logo512.png" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "Creator Terminal",
+          "alternateName": "CreatorTerminal",
+          "description": "501(c)(3) nonprofit organization empowering emerging digital media professionals through accessible, high-quality resources and educational opportunities in videography, coding, 3D modeling, and audio production.",
+          "url": "https://www.creatorterminal.com",
+          "logo": "https://www.creatorterminal.com/logo512.png",
+          "image": "https://www.creatorterminal.com/hero-bg.avif",
+          "foundingDate": "2024",
+          "email": "contact@creatorterminal.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3803 Pottharst Park Ct",
+            "addressLocality": "Katy",
+            "addressRegion": "TX",
+            "postalCode": "77494",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 29.7604,
+            "longitude": -95.3698
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Katy, TX" },
+            { "@type": "City", "name": "Houston, TX" },
+            { "@type": "City", "name": "Fulshear, TX" },
+            { "@type": "AdministrativeArea", "name": "Harris County, TX" },
+            { "@type": "AdministrativeArea", "name": "Fort Bend County, TX" }
+          ],
+          "nonprofitStatus": "Nonprofit501c3",
+          "taxID": "93-4865679",
+          "slogan": "Never Be Afraid To Grow, Create, & Inspire",
+          "knowsAbout": ["Recording Arts", "Video Production", "Web Design", "Graphic Design", "Audio Engineering", "Music Production", "Coding", "3D Modeling", "Social Media Marketing", "Business Administration"],
+          "sameAs": [
+            "https://www.linkedin.com/company/creatorterminal",
+            "https://x.com/CreatorTerminal",
+            "https://www.youtube.com/@CreatorTerminal",
+            "https://www.facebook.com/CreatorTerminal",
+            "https://www.tiktok.com/@creatorterminal",
+            "https://discord.com/invite/a9XGNEDBrT",
+            "https://www.patreon.com/creatorterminal"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Creative Education Programs",
+            "itemListElement": [
+              { "@type": "Course", "name": "Recording Arts", "description": "Professional audio engineering and music production training" },
+              { "@type": "Course", "name": "Video Production", "description": "Film, cinematography, and video editing training" },
+              { "@type": "Course", "name": "Web & Graphic Design", "description": "Web development, UI/UX design, and graphic design training" },
+              { "@type": "Course", "name": "3D Modeling", "description": "3D modeling, Unreal Engine, and digital animation" },
+              { "@type": "Course", "name": "Social Media Marketing", "description": "Digital marketing and social media strategy training" },
+              { "@type": "Course", "name": "Business Administration", "description": "Business fundamentals, branding, and entrepreneurship" }
+            ]
+          }
+        })}</script>
+      </Helmet>
       <Navigation />
       <main>
         <Hero />

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { CTA, Footer } from './App';
 import './DonatePage.css';
 
@@ -123,6 +124,40 @@ function DonatePage() {
 
   return (
     <div className="donate-page">
+      <Helmet>
+        <title>Donate to Creator Terminal | Support Digital Media Education in Houston</title>
+        <meta name="description" content="Support Creator Terminal's mission to provide accessible digital media education. Your tax-deductible donation helps fund creative workshops, scholarships, and technology access in Houston & Katy, TX. 501(c)(3) EIN: 93-4865679." />
+        <meta name="keywords" content="donate Creator Terminal, support nonprofit Houston, tax deductible donation, digital media education charity, Katy TX nonprofit donation, creative education funding" />
+        <link rel="canonical" href="https://www.creatorterminal.com/donate" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.creatorterminal.com/donate" />
+        <meta property="og:title" content="Donate to Creator Terminal | Support Digital Media Education" />
+        <meta property="og:description" content="Your tax-deductible donation helps Creator Terminal provide creative education, technology access, and real-world training for people who need it most." />
+        <meta property="og:image" content="https://www.creatorterminal.com/donate.jpg" />
+        <meta property="og:site_name" content="Creator Terminal" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CreatorTerminal" />
+        <meta name="twitter:title" content="Donate to Creator Terminal" />
+        <meta name="twitter:description" content="Your donation helps Creator Terminal provide creative education and technology access to communities in Houston & Katy, TX." />
+        <meta name="twitter:image" content="https://www.creatorterminal.com/donate.jpg" />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DonateAction",
+          "name": "Donate to Creator Terminal",
+          "description": "Support digital media education in Houston & Katy, TX",
+          "recipient": {
+            "@type": "Organization",
+            "name": "Creator Terminal",
+            "url": "https://www.creatorterminal.com",
+            "nonprofitStatus": "Nonprofit501c3",
+            "taxID": "93-4865679"
+          },
+          "url": "https://www.creatorterminal.com/donate"
+        })}</script>
+      </Helmet>
       {/* Navigation */}
       <nav className="donate-nav">
         <div className="donate-nav-inner">
