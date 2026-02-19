@@ -244,15 +244,14 @@ function Navigation() {
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
         <div className="nav-inner">
           <div className="nav-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} role="button" tabIndex={0} aria-label="Go to top">
-            <CTLogoFull height={32} variant="light" />
+            <CTLogoFull height={32} variant="dark" />
           </div>
           <ul className="nav-links">
-            <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a></li>
-            <li><a href="#programs" onClick={(e) => { e.preventDefault(); scrollTo('programs'); }}>Programs</a></li>
-            <li><a href="#makerspace" onClick={(e) => { e.preventDefault(); scrollTo('makerspace'); }}>Makerspace</a></li>
-            <li><a href="#community" onClick={(e) => { e.preventDefault(); scrollTo('community'); }}>Community</a></li>
-            <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>FAQ</a></li>
-            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} className="nav-cta">Get Started</a></li>
+            <li><a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/donate">Donate</a></li>
+            <li><a href="/blog">Impact Stories</a></li>
+            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact</a></li>
           </ul>
           <button className="mobile-menu-btn" onClick={() => setMobileOpen(true)} aria-label="Open menu">
             <Icons.Menu />
@@ -264,12 +263,11 @@ function Navigation() {
         <button className="mobile-close" onClick={() => setMobileOpen(false)} aria-label="Close menu">
           <Icons.X />
         </button>
-        <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a>
-        <a href="#programs" onClick={(e) => { e.preventDefault(); scrollTo('programs'); }}>Programs</a>
-        <a href="#makerspace" onClick={(e) => { e.preventDefault(); scrollTo('makerspace'); }}>Makerspace</a>
-        <a href="#community" onClick={(e) => { e.preventDefault(); scrollTo('community'); }}>Community</a>
-        <a href="#faq" onClick={(e) => { e.preventDefault(); scrollTo('faq'); }}>FAQ</a>
-        <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} className="btn-primary" style={{ marginTop: '1rem' }}>Get Started</a>
+        <a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileOpen(false); }}>Home</a>
+        <a href="/team" onClick={() => setMobileOpen(false)}>Team</a>
+        <a href="/donate" onClick={() => setMobileOpen(false)}>Donate</a>
+        <a href="/blog" onClick={() => setMobileOpen(false)}>Impact Stories</a>
+        <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>Contact</a>
       </div>
     </>
   );
@@ -278,18 +276,13 @@ function Navigation() {
 /* ============================================
    HERO SECTION
    ============================================ */
-function useMousePosition() {
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  useEffect(() => {
-    const handler = (e) => setPos({ x: e.clientX, y: e.clientY });
-    window.addEventListener('mousemove', handler);
-    return () => window.removeEventListener('mousemove', handler);
-  }, []);
-  return pos;
-}
+const DiscordIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
+  </svg>
+);
 
 function Hero() {
-  const mouse = useMousePosition();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -299,100 +292,108 @@ function Hero() {
 
   return (
     <section className="hero" role="banner">
-      {/* Animated gradient orbs */}
-      <div className="hero-orbs">
-        <div
-          className="hero-orb hero-orb-1"
-          style={{ transform: `translate(${mouse.x * 0.02}px, ${mouse.y * 0.02}px)` }}
-        />
-        <div
-          className="hero-orb hero-orb-2"
-          style={{ transform: `translate(${mouse.x * -0.015}px, ${mouse.y * -0.015}px)` }}
-        />
-        <div
-          className="hero-orb hero-orb-3"
-          style={{ transform: `translate(${mouse.x * 0.01}px, ${mouse.y * -0.01}px)` }}
-        />
+      <div className={`hero-inner ${loaded ? 'hero-loaded' : ''}`}>
+        {/* Left: Text content */}
+        <div className="hero-text">
+          {/* Top badge */}
+          <div className="hero-badge" style={{ animationDelay: '0.2s' }}>
+            <span className="dot" />
+            <span>Nonprofit</span>
+            <span className="badge-divider" />
+            <span>Katy &bull; Houston, TX</span>
+          </div>
+
+          {/* Main heading */}
+          <h1 className="hero-title" style={{ animationDelay: '0.3s' }}>
+            Inspire Through <span className="hero-title-gradient">Creation</span>
+          </h1>
+
+          {/* Tagline */}
+          <p className="hero-tagline" style={{ animationDelay: '0.5s' }}>
+            Where together, we create more than just art, <strong>We create futures</strong>
+          </p>
+        </div>
       </div>
 
-      {/* Subtle grid */}
-      <div className="hero-grid-pattern" />
-
-      {/* Animated scan line */}
-      <div className="hero-scanline" />
-
-      <div className={`hero-content ${loaded ? 'hero-loaded' : ''}`}>
-        {/* Top badge */}
-        <div className="hero-badge" style={{ animationDelay: '0.2s' }}>
-          <span className="dot" />
-          <span>501(c)(3) Nonprofit</span>
-          <span className="badge-divider" />
-          <span>Katy &bull; Houston, TX</span>
-        </div>
-
-        {/* Main heading with staggered reveal */}
-        <h1 className="hero-title">
-          <span className="hero-title-line" style={{ animationDelay: '0.3s' }}>
-            <span className="hero-title-word">Build</span>
-            <span className="hero-title-word dim">Your</span>
-            <span className="hero-title-word dim">Future</span>
-            <span className="hero-title-word dim">In</span>
-          </span>
-          <span className="hero-title-line" style={{ animationDelay: '0.5s' }}>
-            <span className="hero-title-gradient">Digital Media</span>
-          </span>
-        </h1>
-
-        {/* Subheading */}
-        <p className="hero-description" style={{ animationDelay: '0.7s' }}>
-          A nonprofit creative lab empowering the next generation through
-          <span className="hero-highlight"> recording arts</span>,
-          <span className="hero-highlight"> video production</span>,
-          <span className="hero-highlight"> coding</span>, and
-          <span className="hero-highlight"> design</span>.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="hero-actions" style={{ animationDelay: '0.9s' }}>
-          <a href="#programs" className="hero-btn-primary" onClick={(e) => { e.preventDefault(); document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' }); }}>
-            <span>Explore Programs</span>
+      {/* Video */}
+      <div className={`hero-video-section ${loaded ? 'hero-loaded' : ''}`}>
+        <div className="hero-video-container" style={{ animationDelay: '0.7s' }}>
+          <video
+            className="hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={`${process.env.PUBLIC_URL}/hero-bg.avif`}
+          >
+            <source src={`${process.env.PUBLIC_URL}/hero.mp4`} type="video/mp4" />
+          </video>
+          <a href="/donate" className="hero-video-cta">
+            <span>Donate Today</span>
             <Icons.ArrowRight />
           </a>
-          <a href="#about" className="hero-btn-ghost" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}>
-            <span className="hero-btn-ghost-icon"><Icons.Play /></span>
-            <span>Our Story</span>
-          </a>
         </div>
+      </div>
 
-        {/* Stats bar */}
-        <div className="hero-stats-bar" style={{ animationDelay: '1.1s' }}>
-          <div className="hero-stat-item">
-            <span className="hero-stat-number">6+</span>
-            <span className="hero-stat-label">Creative<br/>Disciplines</span>
+      {/* Mission statement strip */}
+      <div className={`hero-mission-strip ${loaded ? 'hero-loaded' : ''}`}>
+        <div className="hero-mission-inner" style={{ animationDelay: '0.9s' }}>
+          <div className="hero-mission-accent" />
+          <p className="hero-mission-text">
+            We're building a space where creativity has no limits. From video and audio production
+            to design, coding, and 3D creation, our goal is to give people the <strong>tools</strong>,{' '}
+            <strong>knowledge</strong>, and <strong>confidence</strong> to bring their ideas to life
+            and build lasting futures through creativity.
+          </p>
+        </div>
+      </div>
+
+      {/* Stat cards */}
+      <div className={`hero-cards-wrap ${loaded ? 'hero-loaded' : ''}`}>
+        <div className="hero-cards" style={{ animationDelay: '1.0s' }}>
+          <div className="hero-card">
+            <span className="hero-card-number">500</span>
+            <span className="hero-card-label">Students & Creators Impacted</span>
           </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat-item">
-            <span className="hero-stat-number">90</span>
-            <span className="hero-stat-label">Day Path<br/>to Freelance</span>
+          <div className="hero-card">
+            <span className="hero-card-number">150</span>
+            <span className="hero-card-label">Creative Projects Supported</span>
           </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat-item">
-            <span className="hero-stat-number">3</span>
-            <span className="hero-stat-label">Counties<br/>Served</span>
+          <div className="hero-card">
+            <span className="hero-card-number">12</span>
+            <span className="hero-card-label">Active Training Programs</span>
           </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat-item">
-            <span className="hero-stat-number hero-stat-free">Free</span>
-            <span className="hero-stat-label">Community<br/>Access</span>
+          <div className="hero-card hero-card-vision">
+            <span className="hero-card-number">1 Vision</span>
+            <span className="hero-card-label">A 150,000 Sq. Ft. Creative Facility</span>
           </div>
         </div>
       </div>
 
-      {/* Bottom fade + scroll indicator */}
-      <div className="hero-bottom-fade" />
-      <div className="scroll-indicator">
-        <span>Scroll to explore</span>
-        <div className="scroll-line" />
+      {/* Discord Card */}
+      <div className={`hero-discord-wrap ${loaded ? 'hero-loaded' : ''}`}>
+        <a
+          href="https://discord.gg/JXQaukyVaa"
+          className="hero-discord-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ animationDelay: '1.2s' }}
+        >
+          <div className="hero-discord-icon-wrap">
+            <DiscordIcon />
+          </div>
+          <div className="hero-discord-info">
+            <span className="hero-discord-label">Join Our Community</span>
+            <h3 className="hero-discord-title">Creator Terminal Discord</h3>
+            <p className="hero-discord-desc">
+              Connect with fellow creators, share your work, get feedback, and stay updated on events and opportunities.
+            </p>
+          </div>
+          <div className="hero-discord-action">
+            <span>Join Server</span>
+            <Icons.ArrowRight />
+          </div>
+        </a>
       </div>
     </section>
   );
@@ -407,7 +408,7 @@ function About() {
       <div className="section-inner">
         <AnimatedSection>
           <div className="section-label"><span className="line" /> Our Mission</div>
-          <h2 className="section-title">Democratizing Creative Education</h2>
+          <h2 className="section-title">Empowering Growth Through Creativity and Access</h2>
           <p className="section-subtitle">
             We believe everyone deserves access to world-class creative tools and training.
           </p>
@@ -417,8 +418,8 @@ function About() {
           <AnimatedSection direction="left">
             <div className="about-image">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
-                alt="Creator Terminal education session - students learning digital media production"
+                src={`${process.env.PUBLIC_URL}/newpic.avif`}
+                alt="Creator Terminal empowering growth through creativity"
                 loading="lazy"
               />
               <div className="about-image-overlay" />
@@ -427,21 +428,29 @@ function About() {
 
           <AnimatedSection direction="right">
             <div className="about-text">
-              <h3>Empowering the Next Generation of Digital Creators</h3>
-              <p>
-                Creator Terminal is a nonprofit organization dedicated to empowering emerging digital
-                media professionals and enthusiasts by providing accessible, high-quality resources
-                and educational opportunities across disciplines including videography, coding,
-                3D modeling, and audio production.
-              </p>
-              <p>
-                Our vision is to be a cornerstone of the digital media community by democratizing
-                access to technology and training, ultimately cultivating skilled professionals
-                and thriving creative businesses across Katy, Houston, and the greater
-                Harris and Fort Bend County areas.
-              </p>
-              <div className="about-motto">
-                "NEVER BE AFRAID TO GROW, CREATE, & INSPIRE"
+              <h3>Empowering Growth Through Creativity and Access</h3>
+              <div className="about-cards">
+                <div className="about-card">
+                  <img src={`${process.env.PUBLIC_URL}/1.png`} alt="" className="about-card-icon" />
+                  <div>
+                    <h4>Expand Opportunity</h4>
+                    <p>Bridging the gap between talent and technology by providing access to creative tools, training, and real-world experience.</p>
+                  </div>
+                </div>
+                <div className="about-card">
+                  <img src={`${process.env.PUBLIC_URL}/2.png`} alt="" className="about-card-icon" />
+                  <div>
+                    <h4>Inspire Collaboration</h4>
+                    <p>Bringing people together through mentorship, workshops, and community projects that spark innovation and shared learning.</p>
+                  </div>
+                </div>
+                <div className="about-card">
+                  <img src={`${process.env.PUBLIC_URL}/3.png`} alt="" className="about-card-icon" />
+                  <div>
+                    <h4>Build Sustainable Futures</h4>
+                    <p>Equipping creators with the skills and confidence to turn imagination into careers creating lasting impact for themselves and their communities.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </AnimatedSection>
@@ -755,11 +764,603 @@ function FAQ() {
 }
 
 /* ============================================
+   TEAM SECTION
+   ============================================ */
+const teamMembers = [
+  {
+    name: 'Anthony Arriaga',
+    role: 'Founder & President',
+    bio: 'Filmmaker, media producer, and educator dedicated to empowering the next generation of digital creatives in Houston. Anthony founded Creator Terminal to bridge the gap between aspiring creators and industry-level resources.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop',
+    linkedin: 'https://www.linkedin.com/in/mysticmediafilm/',
+  },
+  {
+    name: 'Open Position',
+    role: 'Director of Education',
+    bio: 'We\'re looking for a passionate educator to lead our curriculum development and mentorship programs. If you love teaching digital media skills and building community, we want to hear from you.',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80&fit=crop',
+    linkedin: 'https://www.creatorterminal.com/careers',
+  },
+  {
+    name: 'Open Position',
+    role: 'Community Outreach Coordinator',
+    bio: 'Help us grow our impact across Katy, Houston, and the greater Harris and Fort Bend County areas. This role focuses on partnerships, events, and connecting underserved communities with creative opportunities.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80&fit=crop',
+    linkedin: 'https://www.creatorterminal.com/careers',
+  },
+];
+
+function Team() {
+  return (
+    <section className="section team" id="team">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Our People</div>
+          <h2 className="section-title">Meet the Team</h2>
+          <p className="section-subtitle">
+            Passionate creators and educators building Houston's premier digital media community.
+          </p>
+        </AnimatedSection>
+
+        <div className="team-grid">
+          {teamMembers.map((member, index) => (
+            <AnimatedSection key={index} delay={index * 0.15}>
+              <div className="team-card">
+                <div className="team-card-image">
+                  <img src={member.image} alt={member.name} loading="lazy" />
+                </div>
+                <div className="team-card-content">
+                  <h3>{member.name}</h3>
+                  <span className="team-card-role">{member.role}</span>
+                  <p>{member.bio}</p>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="team-card-link">
+                    <Icons.LinkedIn /> <span>Connect</span>
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <AnimatedSection delay={0.3}>
+          <div className="team-cta">
+            <p>Interested in joining our team?</p>
+            <a href="https://www.creatorterminal.com/careers" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              View Open Positions <Icons.ArrowRight />
+            </a>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   DONATE SECTION
+   ============================================ */
+function Donate() {
+  return (
+    <section className="section donate" id="donate">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Support Our Mission</div>
+          <h2 className="section-title">Help Us Empower Creators</h2>
+          <p className="section-subtitle">
+            As a 501(c)(3) nonprofit, Creator Terminal relies on the generosity of donors and
+            supporters to provide free and accessible digital media education to our community.
+            Every contribution makes a direct impact.
+          </p>
+        </AnimatedSection>
+
+        <div className="donate-grid">
+          <AnimatedSection delay={0.1}>
+            <div className="donate-card donate-card-featured">
+              <div className="donate-card-badge">Most Popular</div>
+              <div className="donate-card-icon" style={{ color: '#10b981' }}>
+                <Icons.Heart />
+              </div>
+              <h3>Monthly Supporter</h3>
+              <p>
+                Become a recurring donor through Patreon and help sustain our programs year-round.
+                Monthly supporters get exclusive updates, behind-the-scenes content, and recognition
+                on our website.
+              </p>
+              <a href="https://www.patreon.com/creatorterminal" target="_blank" rel="noopener noreferrer" className="btn-primary donate-btn">
+                Support on Patreon <Icons.ArrowRight />
+              </a>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="donate-card">
+              <div className="donate-card-icon" style={{ color: '#059669' }}>
+                <Icons.Rocket />
+              </div>
+              <h3>One-Time Donation</h3>
+              <p>
+                Make a tax-deductible one-time contribution via PayPal. Whether it's $10 or $10,000,
+                every dollar goes directly toward equipment, facilities, and educational programs
+                for our community.
+              </p>
+              <a href="https://www.paypal.com/donate/?hosted_button_id=creatorterminal" target="_blank" rel="noopener noreferrer" className="btn-primary donate-btn">
+                Donate via PayPal <Icons.ArrowRight />
+              </a>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <div className="donate-card">
+              <div className="donate-card-icon" style={{ color: '#34d399' }}>
+                <Icons.Briefcase />
+              </div>
+              <h3>Corporate Sponsorship</h3>
+              <p>
+                Partner with Creator Terminal to invest in the future of digital media in Houston.
+                Corporate sponsors receive branding opportunities, event access, and the ability
+                to shape the next generation of creative talent.
+              </p>
+              <a href="mailto:info@creatorterminal.com?subject=Corporate Sponsorship Inquiry" className="btn-primary donate-btn">
+                Get in Touch <Icons.ArrowRight />
+              </a>
+            </div>
+          </AnimatedSection>
+        </div>
+
+        <AnimatedSection delay={0.2}>
+          <div className="donate-tax-note">
+            <Icons.Lightbulb />
+            <p>
+              Creator Terminal is a registered <strong>501(c)(3) nonprofit organization</strong> (EIN: 93-4865679).
+              All donations are tax-deductible to the extent allowed by law.
+            </p>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   IMPACT STORIES SECTION
+   ============================================ */
+const impactStories = [
+  {
+    quote: "Creator Terminal gave me access to equipment and mentorship I never could have afforded on my own. Within three months, I went from knowing nothing about video production to landing my first paid freelance gig.",
+    name: 'Marcus T.',
+    role: 'Video Production Graduate',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&fit=crop',
+    discipline: 'Video Production',
+  },
+  {
+    quote: "The recording arts program completely changed my trajectory. I learned Pro Tools, studio engineering, and music production from real professionals. Now I'm running my own home studio and producing for local artists.",
+    name: 'Jasmine R.',
+    role: 'Recording Arts Graduate',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80&fit=crop',
+    discipline: 'Recording Arts',
+  },
+  {
+    quote: "As someone who always loved design but couldn't afford school, Creator Terminal was a game-changer. The web design and coding program taught me real skills — I now build websites for small businesses in Katy.",
+    name: 'David L.',
+    role: 'Web Design Graduate',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80&fit=crop',
+    discipline: 'Web & Graphic Design',
+  },
+  {
+    quote: "The community here is what sets Creator Terminal apart. It's not just classes — it's a network of people who genuinely support each other. I've found collaborators, mentors, and lifelong friends.",
+    name: 'Sofia M.',
+    role: 'Social Media Marketing Graduate',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80&fit=crop',
+    discipline: 'Social Media Marketing',
+  },
+];
+
+function ImpactStories() {
+  return (
+    <section className="section impact" id="impact">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Real Results</div>
+          <h2 className="section-title">Impact Stories</h2>
+          <p className="section-subtitle">
+            Hear from community members whose lives have been transformed through
+            Creator Terminal's programs and mentorship.
+          </p>
+        </AnimatedSection>
+
+        <div className="impact-grid">
+          {impactStories.map((story, index) => (
+            <AnimatedSection key={index} delay={index * 0.1}>
+              <div className="impact-card">
+                <div className="impact-card-quote">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.15">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/>
+                  </svg>
+                  <p>"{story.quote}"</p>
+                </div>
+                <div className="impact-card-author">
+                  <img src={story.image} alt={story.name} loading="lazy" />
+                  <div>
+                    <strong>{story.name}</strong>
+                    <span>{story.role}</span>
+                  </div>
+                  <span className="impact-card-tag">{story.discipline}</span>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <AnimatedSection delay={0.3}>
+          <div className="impact-stats">
+            <div className="impact-stat">
+              <span className="impact-stat-number">50+</span>
+              <span className="impact-stat-label">Graduates</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-stat-number">85%</span>
+              <span className="impact-stat-label">Employment Rate</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-stat-number">3</span>
+              <span className="impact-stat-label">Counties Served</span>
+            </div>
+            <div className="impact-stat">
+              <span className="impact-stat-number">$0</span>
+              <span className="impact-stat-label">Cost to Students</span>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Open mailto link with form data
+    const mailtoLink = `mailto:info@creatorterminal.com?subject=${encodeURIComponent(formData.subject || 'Website Inquiry')}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+    window.location.href = mailtoLink;
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
+  return (
+    <section className="section contact-section" id="contact">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Get In Touch</div>
+          <h2 className="section-title">Contact Us</h2>
+          <p className="section-subtitle">
+            Have questions about our programs, want to volunteer, or interested in partnering with us?
+            We'd love to hear from you.
+          </p>
+        </AnimatedSection>
+
+        <div className="contact-grid">
+          <AnimatedSection direction="left">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="contact-name">Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    placeholder="Your full name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="contact-email">Email</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact-subject">Subject</label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  placeholder="What's this about?"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="contact-message">Message</label>
+                <textarea
+                  id="contact-message"
+                  placeholder="Tell us how we can help..."
+                  rows="5"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn-primary contact-submit">
+                {submitted ? 'Opening Email Client...' : 'Send Message'} {!submitted && <Icons.ArrowRight />}
+              </button>
+            </form>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="contact-info">
+              <div className="contact-info-card">
+                <div className="contact-info-icon">
+                  <Icons.MapPin />
+                </div>
+                <div>
+                  <h4>Visit Us</h4>
+                  <p>3803 Pottharst Park Ct<br />Katy, TX 77494</p>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <div className="contact-info-icon">
+                  <Icons.Mail />
+                </div>
+                <div>
+                  <h4>Email Us</h4>
+                  <p><a href="mailto:info@creatorterminal.com">info@creatorterminal.com</a></p>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <div className="contact-info-icon">
+                  <Icons.Users />
+                </div>
+                <div>
+                  <h4>Follow Us</h4>
+                  <div className="contact-social-links">
+                    <a href="https://www.linkedin.com/company/creatorterminal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://x.com/CreatorTerminal" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+                    <a href="https://www.instagram.com/creatorterminal" target="_blank" rel="noopener noreferrer">Instagram</a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-info-card">
+                <div className="contact-info-icon">
+                  <Icons.Lightbulb />
+                </div>
+                <div>
+                  <h4>Areas We Serve</h4>
+                  <p>Katy, TX &bull; Houston, TX &bull; Fulshear, TX<br />Harris County &bull; Fort Bend County</p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   INVEST IN CREATORS SECTION (Photos + Donation Cards)
+   ============================================ */
+function InvestInCreators() {
+  return (
+    <section className="section invest-section" id="invest">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Invest in Creators</div>
+          <h2 className="section-title">Empowering Creators for Generations to Come</h2>
+          <p className="section-subtitle invest-subtitle">
+            Creativity shapes the world, and access to it changes lives. Our mission is to provide the tools, education, and community that help people explore their creative potential whether through film, design, coding, or 3D creation. Together, we're building a generation of creators who think boldly and create fearlessly.
+          </p>
+          <p className="section-subtitle invest-subtitle invest-spark">
+            Every story begins with a spark, yours could inspire the next.
+          </p>
+          <a href="#team" className="btn-primary invest-team-btn" onClick={(e) => { e.preventDefault(); document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' }); }}>
+            Meet the Team <Icons.ArrowRight />
+          </a>
+        </AnimatedSection>
+
+        {/* Photo row */}
+        <div className="invest-photos">
+          <AnimatedSection direction="left">
+            <div className="invest-photo">
+              <img src={`${process.env.PUBLIC_URL}/sec1.avif`} alt="Creator Terminal students collaborating" loading="lazy" />
+            </div>
+          </AnimatedSection>
+          <AnimatedSection direction="right">
+            <div className="invest-photo">
+              <img src={`${process.env.PUBLIC_URL}/sec2.avif`} alt="Creator Terminal creative workspace" loading="lazy" />
+            </div>
+          </AnimatedSection>
+        </div>
+
+        {/* Stat card */}
+        <AnimatedSection>
+          <div className="invest-stat-card">
+            <span className="invest-stat-number">8M+</span>
+            <span className="invest-stat-label">Creators Empowered Through Media</span>
+          </div>
+        </AnimatedSection>
+
+        {/* Featured Programs header */}
+        <AnimatedSection>
+          <div className="invest-featured-header">
+            <div className="section-label"><span className="line" /> Featured Programs</div>
+            <h3 className="invest-featured-title">Empowering Communities One Creator at a Time</h3>
+            <p className="section-subtitle invest-subtitle">
+              Our initiatives empower creators, students, and small businesses to explore digital media and technology. Through education, mentorship, and hands-on learning, we're helping communities build creative skills that open doors to new careers, opportunities, and possibilities.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        {/* Donation cards */}
+        <div className="invest-cards">
+          <AnimatedSection delay={0.1}>
+            <div className="invest-card">
+              <div className="invest-card-image">
+                <img src={`${process.env.PUBLIC_URL}/creatorScholarships.avif`} alt="Creator Scholarships" loading="lazy" />
+              </div>
+              <div className="invest-card-content">
+                <h3>Creator Scholarship</h3>
+                <p className="invest-card-tagline">Investing in Emerging Talent</p>
+                <p>Helps fund scholarships and training for students pursuing digital arts, media production, and technology programs at Creator Terminal.</p>
+                <div className="invest-card-goal">
+                  <Icons.Rocket />
+                  <span>Target Goal: <strong>$5,750,000</strong></span>
+                </div>
+                <a href="/donate" className="btn-primary invest-donate-btn">
+                  Donate <Icons.ArrowRight />
+                </a>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="invest-card">
+              <div className="invest-card-image">
+                <img src={`${process.env.PUBLIC_URL}/DigitalLearningAccess.webp`} alt="Digital Learning Access" loading="lazy" />
+              </div>
+              <div className="invest-card-content">
+                <h3>Digital Learning Access</h3>
+                <p className="invest-card-tagline">Expanding Creative Education</p>
+                <p>Funds provide computers, cameras, and software for individuals without access to creative tools ensuring anyone can learn, create, and grow in digital media.</p>
+                <div className="invest-card-goal">
+                  <Icons.Rocket />
+                  <span>Target Goal: <strong>$8,250,000</strong></span>
+                </div>
+                <a href="/donate" className="btn-primary invest-donate-btn">
+                  Donate <Icons.ArrowRight />
+                </a>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <div className="invest-card">
+              <div className="invest-card-image">
+                <img src={`${process.env.PUBLIC_URL}/CreatorTerminalFacility.webp`} alt="Creator Terminal Facility" loading="lazy" />
+              </div>
+              <div className="invest-card-content">
+                <h3>Creator Terminal Facility</h3>
+                <p className="invest-card-tagline">Building the Future of Creativity</p>
+                <p>A 150,000 sq. ft. hub designed to provide studios, classrooms, and labs for film, design, coding, and 3D education built to empower creators and strengthen communities.</p>
+                <div className="invest-card-goal">
+                  <Icons.Rocket />
+                  <span>Target Goal: <strong>$46,500,000</strong></span>
+                </div>
+                <a href="/donate" className="btn-primary invest-donate-btn">
+                  Donate <Icons.ArrowRight />
+                </a>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   EMPOWERING GROWTH SECTION
+   ============================================ */
+function EmpoweringGrowth() {
+  return (
+    <section className="section empowering-section" id="empowering">
+      <div className="section-inner">
+        <AnimatedSection>
+          <div className="section-label"><span className="line" /> Our Impact</div>
+          <h2 className="section-title">Empowering Growth Through Creativity and Access</h2>
+        </AnimatedSection>
+
+        <div className="empowering-grid">
+          <AnimatedSection delay={0.1}>
+            <div className="empowering-card">
+              <div className="empowering-card-icon">
+                <Icons.Rocket />
+              </div>
+              <h3>Expand Opportunity</h3>
+              <p>Bridging the gap between talent and technology by providing access to creative tools, training, and real-world experience.</p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="empowering-card">
+              <div className="empowering-card-icon">
+                <Icons.Users />
+              </div>
+              <h3>Inspire Collaboration</h3>
+              <p>Bringing people together through mentorship, workshops, and community projects that spark innovation and shared learning.</p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.3}>
+            <div className="empowering-card">
+              <div className="empowering-card-icon">
+                <Icons.Lightbulb />
+              </div>
+              <h3>Build Sustainable Futures</h3>
+              <p>Equipping creators with the skills and confidence to turn imagination into careers creating lasting impact for themselves and their communities.</p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
+   JOIN CREATOR TERMINAL SECTION
+   ============================================ */
+function JoinSection() {
+  return (
+    <section className="section join-section" id="join">
+      <div className="section-inner">
+        <div className="join-layout">
+          <AnimatedSection direction="left">
+            <div className="join-image">
+              <img src={`${process.env.PUBLIC_URL}/join.avif`} alt="Join Creator Terminal" loading="lazy" />
+              <div className="join-image-overlay" />
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <div className="join-content">
+              <h2 className="section-title">Join Creator Terminal Today!</h2>
+              <p>Together, we can open doors for creators, expand access to technology, and build a future where creativity empowers communities. Every contribution helps us provide the tools, training, and opportunities that turn imagination into possibility.</p>
+              <a href="#contact" className="btn-primary join-btn" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+                Get Involved <Icons.ArrowRight />
+              </a>
+              <p className="join-footnote">Creator Terminal is a nonprofit organization dedicated to making creative education accessible, fostering collaboration, and empowering the next generation of digital creators.</p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================
    CTA SECTION
    ============================================ */
 function CTA() {
   return (
-    <section className="cta-section" id="contact">
+    <section className="cta-section">
       <div className="cta-glow" />
       <div className="section-inner">
         <AnimatedSection>
@@ -800,7 +1401,7 @@ function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="nav-logo">
-              <CTLogoFull height={30} variant="light" />
+              <CTLogoFull height={30} variant="dark" />
             </div>
             <p>
               Empowering emerging digital media professionals through accessible,
@@ -834,10 +1435,11 @@ function Footer() {
             <h4>Organization</h4>
             <ul>
               <li><a href="#about">About Us</a></li>
-              <li><a href="#makerspace">Makerspace</a></li>
-              <li><a href="#community">Community</a></li>
-              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="/donate">Donate</a></li>
+              <li><a href="/blog">Impact Stories</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="#faq">FAQ</a></li>
             </ul>
           </div>
 
@@ -877,17 +1479,18 @@ function App() {
       <Navigation />
       <main>
         <Hero />
-        <About />
-        <Programs />
+        <InvestInCreators />
         <Makerspace />
-        <Pathway />
-        <Community />
-        <FAQ />
+        <JoinSection />
+        <Donate />
+        <Contact />
         <CTA />
+        <FAQ />
       </main>
       <Footer />
     </div>
   );
 }
 
+export { CTA, Footer };
 export default App;
